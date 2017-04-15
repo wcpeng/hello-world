@@ -1,0 +1,97 @@
+\documentclass[sigconf]{acmart}
+
+% Copyright
+\setcopyright{rightsretained}
+
+% DOI
+\acmDOI{10.475/123_4}
+
+% ISBN
+\acmISBN{123-4567-24-567/08/06}
+
+%Conference
+\acmConference[KDD'17]{ACM SIGKDD}{August 2017}{Halifax, Nova Scotia Canada} 
+\acmYear{2017}
+\copyrightyear{2017}
+
+\acmPrice{15.00}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage[ruled,linesnumbered,noend]{algorithm2e}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+\newtheorem{defi}{Definition}  % 在 preamble 區先定義好環境名稱
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\graphicspath{{figure/}}
+
+\begin{document}
+\title{Discovering customer purchasing behavior from payment datasets for behavior prediction}
+
+\author{Yu-Ting Wen, Pei-Wen Yeh, Tzu-Hao Tsai, Hong-Han Shuai, Wen-Chih Peng}
+\affiliation{%
+  \institution{National Chiao Tung University}
+  \city{Hsinchu} 
+  \state{Taiwan} 
+}
+\email{{ytwen, pwyeh, tsuhao}@cs.nctu.edu.tw, hhshuai@nctu.edu.tw, wcpeng@cs.nctu.edu.tw}
+
+\newcommand\mycommfont[1]{\footnotesize{#1}}
+\SetCommentSty{mycommfont}
+% The default list of authors is too long for headers}
+\renewcommand{\shortauthors}{Y.-T. Wen et al.}
+
+\begin{abstract}
+%With the popularity of social media (e.g., Facebook and Flicker), users could easily share their check-in records and photos during their trips. In view of the huge amount of check-in data and photos in social media, we intend to discover travel experiences to facilitate trip planning. Prior works have been elaborated on mining and ranking existing travel routes from check-in data. We observe that when planning a trip, users may have some keywords about preference on his/her trips. Moreover, a diverse set of travel routes is needed. To provide a diverse set of travel routes, we claim that more features of Places of Interests (POIs) should be extracted. Therefore, in this paper, we propose a Keyword-aware Skyline Travel Route (\textit{KSTR}) framework that use knowledge extraction from historical mobility records and the user's social interactions. Explicitly, we model the ``Where, When, Who'' issues by featurizing the geographical mobility pattern, temporal influence and social influence. Then we propose a keyword extraction module to classify the POI-related tags automatically into different types, for effective matching with query keywords. We further design a route reconstruction algorithm to construct route candidates that fulfill the query inputs. To provide diverse query results, we explore Skyline concepts to rank routes. To evaluate the effectiveness and efficiency of the proposed algorithms, we have conducted extensive experiments on real location-based social network datasets, and the experimental results show that \textit{KSTR} does indeed demonstrate good performance compared to state-of-the-art works.
+With the advance in the development of mobile payments, a huge amount of payment data is collected in banks. User payment data is a good dataset to depict customer behavior patterns.
+A comprehensive understanding of customers' purchasing behavior is crucial to any successful customer relationship management institution. 
+It also plays the key role of building personalized marketing strategies for guiding customers to target stores. 
+In this paper, we design a new framework that exploits the payment data to discover customers' purchasing behavior in \underline{s}patial, \underline{t}emporal and activity (i.e., \underline{p}ayment amount and product \underline{c}ategory) aspects, naming STPC-PGM. 
+This work is cooperated with E.Sun bank, one of the leading domestic banks in Taiwan. 
+The goal is to increase the transaction values which confronting unique demands from a wide and diverse audience, including both credit card users and appointed stores. 
+%Given customers' transaction records (e.g., credit card charging statements), we need a accurate way to determine the
+Our proposed framework determines the important features that influence the purchase activities and generate accurate user profiles. 
+We further predicts future mobility behavior of an individual user with a probabilistic graphical model that account for all aspects of each customer's relationship with our platform.
+Moreover, by modeling different customer types allows different feature weights to enhance the interpretability of the prediction.
+%We further model different customer types, such as one-time
+%buyers and power users, separately so as to allow for different
+%feature weights and to enhance the interpretability of
+%our results. Additionally, we developed an economical scoring
+%framework wherein we re-score a user when any trigger
+%events occur and apply a decay function otherwise, to enable
+%frequent scoring of a large customer base with a complex
+%model. 
+Experiment results show that STPC-PGM is effective in discovering users' profiling features, and outperforms state-of-the-art methods of the tasks of prediction. 
+Additionally, the location prediction results is deployed on the marketing of real-world credit card users, and presents significant amount growth rate in bills.
+\end{abstract}
+
+\keywords{Finance, Spatio-temporal, User profiling, Customer behavior prediction}
+
+\maketitle
+\input{1_introduction-v1}
+\input{2_related_work-v1}
+\input{3_feature_profiling-v1}
+\input{4_pgmodel-v1}
+\input{5_experiment-v1}
+
+\nocite{song2010limits,brockmann2006scaling,si2016goal,liu2013tensor}
+
+\section{Conclusion}
+In this paper, we have described the challenges faced, the methods chosen, and the observations found in building a customer behavior prediction model for the Fintech development of payment dataset from banks. Our STPC-probabilistic graphical model (STPC-PGM) discovers tens of features in spatial, temporal, payment and category aspects, this gives us the ability to effectively detect patterns and changes in customer activities. 
+We gain additional accuracy by building separate models for differently-behaving sets of customers, such as
+single card holders and multiple card holds. 
+This system is currently running in marketing strategies, choosing users who have high probability to purchase in target categories as potential purchasers, and the results are being utilized by business advertising teams.
+As our next step, we aim to explore more Fintech tasks with our marketing partners, such as churn prediction, new card recommendation and personalized wealth planning.
+% conference papers do not normally have an appendix
+
+% use section* for acknowledgement
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{reference}
+
+\end{document}
