@@ -2,4 +2,4 @@
 Just another repository
 Hi ! 
 
- This is a test aboutthe GitHub ! :) I am Chris !! 
+ This is a test about the GitHub ! :) I am Chris !! 
